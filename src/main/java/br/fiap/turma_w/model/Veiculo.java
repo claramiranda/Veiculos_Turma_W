@@ -13,26 +13,65 @@ public class Veiculo {
     private int velocidadeAtual;
 
 
-    //Metodos da Classe
+    public Veiculo(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.velocidadeAtual = 0;
+    }
 
+    /**
+     * Método para atualizar o atributo de velocidadeAtual de um veículo. Não aceita valores negativos.
+     * @param incremento velocidade em KMs a ser incrementada
+     */
     public void acelerar(int incremento){
-        //TODO implementar método de aceleração
-        //verificar se o incremento vai superar a velocidade máxima
-        //atualizar velocidadeAtual do veículo
-        //notificar usuário da nova velocidade
+        //TODO implementar testes unitários para método acelerar
+
+            if(incremento > 0) {
+                if (velocidadeAtual + incremento > velocidadeMaxima){
+                    System.out.println("[Erro] Incremento ultrapassa velocidade máxima aceita pelo Veículo.");
+                }
+                else{
+                    velocidadeAtual += incremento;
+                    System.out.println("[ACELERAR] Velocidade aumentou em " + incremento + " km.");
+                }
+            }
+            //Se o incremento for menor ou igual a zero
+            else {
+                System.out.println("[ERRO] Não é possivel utilizar valor nulo ou negativo para acelerar o veículo.");
+            }
     }
 
+    /**
+     * Método para reduzir a velocidade de um veículo. Não aceita parametros nulos ou negativos.
+     * @param decremento velocidade em KMs a ser decrementada
+     */
     public void reduzirVelocidade(int decremento){
-    //TODO Implementar redução de Velocidade
-        //validar se o valora ser decrementado é menor do que zero
-        //decrementar velocidadeAtual
-        //Notificar usuário
-
+    //TODO Implementar testes unitários no método reduzirVelocidade
+        if (decremento > 0 && (velocidadeAtual - decremento >= 0)){
+            velocidadeAtual -= decremento;
+            System.out.println("[REDUZIR] Velocidade do veículo reduziu em "
+                    + decremento + " km. Velocidade atual: " + this.velocidadeAtual);
+        }
+        else {
+            System.out.println("[ERRO] Valor inválido. Decremento: " + decremento
+                    + " velocidadeAtual: " + velocidadeAtual);
+        }
     }
 
-    public void obterStatus(){
-        //TODO implementar método que imprime o estado atual do objeto
 
+    /**
+     * Método para montar string com status atual de um veículo
+     * @return String com o status em texto
+     */
+    public String obterStatus(){
+        String str;
+
+        str = "Modelo: " + modelo + "\nMarca: " + marca +
+                "\nAno: " + ano + "\nVelocidade Máxima: "
+                + velocidadeMaxima + "\nVelocidade Atual: " + velocidadeAtual;
+
+        return str;
     }
 
 

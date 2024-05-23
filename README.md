@@ -15,3 +15,9 @@ O diagrama de Caso de Uso ilustra as principais atividades realizadas pelo siste
 O Diagrama de Caso de Uso   
 
 ![Diagrama de Classe](src/main/resources/Veiculos_turma_W-Classe.drawio.png)
+
+
+### To Do ReadMe
+- [ ] Incluir Colaboradores do projeto
+- [ ] Incluir Dependências 
+- [ ] Instruções para execução 
